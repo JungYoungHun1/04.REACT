@@ -8,7 +8,7 @@ const MyPage = () => {
     return <Navigate to="/login" replace={true} />;
   }
 
-  return <div>마이 페이지</div>;
+  return <div>마이 페이지 tq</div>;
 };
 
 export default MyPage;
