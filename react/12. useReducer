@@ -1,0 +1,5 @@
+userReducer : State 생성하고 관리하는 Hook
+
+- reducer : State를 업데이트
+- dispatch : state 업데이트 요구
+- action : 요구 내용 

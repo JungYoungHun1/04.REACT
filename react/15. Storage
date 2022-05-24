@@ -1,0 +1,14 @@
+WebStorage
+- local / session
+
+- localStorage : key : value, 문자열로 저장, json
+
+- 사용
+window.localStorage.
+- setItem(k : v)
+- getItem(k)
+- removeItem()
+- clear()
+- length
+- key(idx) - 인덱스 번호로 키값 출력
+

@@ -1,0 +1,7 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 80,
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "node"
+  }
+}

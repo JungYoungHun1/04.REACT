@@ -1,0 +1,14 @@
+[Node.js]
+어플리케이션을 실행시키는 SW 플랫폼
+JavaScript로 되어 있음 -> JS SW 실행 가능
+
+- 설치
+- 확인 : cmd창 - node -v, npm -v
+NPM Node Package Manager
+-> 개발에 필요한 도구 패키지를 관리하는 툴
+
+npx create-react-app my-app
+cd my-app
+npm start
+
+ctrl + c - 작업종료

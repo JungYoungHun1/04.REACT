@@ -1,0 +1,11 @@
+jsx 는 리액트의 구조를 생성할때 사용되는 js 확장 문법
+
+1. 컴포넌트는 반드시 닫혀야한다.
+2. 2개 이상의 컴포넌트를 사용할 때에는 반드시 또 다른 태그 내부에 존재해야 한다
+3. js의 변수를 출력하려면 {}를 사용한다.
+4. Class 적용하려면 ClassName 속성의 객체를 만들어서 작성
+
+camelCase
+snake_case
+kebab-camelCase
+PascalCase
