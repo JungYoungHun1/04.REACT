@@ -27,6 +27,9 @@ import Inputs from './Inputs'
 import CSSModule from './components/CSSModule'
 import StyledComponent from './components/StyledComponent'
 import Async from './components/Async'
+import homeTraining from './homeTraining'
+import UserList from './UserList'
+import CreateUser from './CreateUser'
 
 // import { UseContext2 } from './UseContext1';
 
@@ -106,7 +109,10 @@ function App() {
             {/* <Inputs></Inputs> */}
             {/* <CSSModule></CSSModule> */}
             {/* <StyledComponent></StyledComponent> */}
-            <Async></Async>
+            {/* <Async></Async> */}
+            {/* <homeTraining></homeTraining> */}
+            {/* <UserList></UserList> */}
+            <CreateUser></CreateUser>
         </div>
     )
 }
