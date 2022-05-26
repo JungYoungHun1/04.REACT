@@ -3,7 +3,10 @@ import axios from "axios";
 import NewsList from "./NewsList";
 import Categories from "./Categories";
 import React, { useState, useCallback } from "react";
+import { useParams } from "react-router-dom";
 function App() {
+  const { categoryValue } = useParams();
+  console.log(categoryValue);
   const [category, setCategory] = useState("");
   const selectCategory = useCallback((category) => setCategory(category), []);
   // const getData = async () => {
@@ -22,7 +25,8 @@ function App() {
     // </div>
     <>
       <Categories
-        category={category}
+        // category={category}
+        category={categoryValue}
         setCategory={setCategory}
         onClick={selectCategory}
       ></Categories>

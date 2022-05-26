@@ -32,7 +32,7 @@ function NewsList({ category }) {
 
         const response = await axios.get(
           //   `https://newsapi.org/v2/top-headlines?country=kr&apiKey=f2d43a1e4c3c46bd8f95574937bbb881&category=${category}`
-          `https://newsapi.org/v2/top-headlines?country=kr&apiKey=bc51f2b5411d4cee80544a3261024959${queryString}`
+          `https://newsapi.org/v2/top-headlines?country=kr&apiKey=9e3d36b809b04596b6beb919ba85d2f3${queryString}`
         );
         console.log(response.data);
         setArticles(response.data.articles);
