@@ -8,7 +8,7 @@ import UseState1 from './UseState1'
 // import Child from './Child';
 // import UseEffect1 from './UseEffect1';
 // import UseEffect2 from './UseEffect2';
-import React, { useEffect, useState } from 'react'
+import React, { useState, useRef } from 'react'
 // import UseRef1 from './UseRef1';
 // import UseRef2 from './UseRef2';
 // import UseRef3 from './UseRef3';
@@ -53,67 +53,50 @@ import CreateUser from './CreateUser'
 //   );
 // }
 function App() {
-    // const [work, setWork] = useState(false);
-    // const [company, setCompany] = useState("더존");
-    // const [color, setColor] = useState("black");
-    // const [back, setBack] = useState("white");
+    const [inputs, setInputs] = useState({
+        username: '',
+        email: '',
+    })
+    const { username, email } = inputs
+    const onChange = (e) => {
+        const { name, value } = e.target
+        setInputs({
+            ...inputs,
+            [name]: value,
+        })
+    }
+    const [users, setUsers] = useState([])
+    const nextId = useRef(1)
+
+    const onCreate = () => {
+        const user = {
+            id: nextId.current,
+            username,
+            email,
+        }
+        setUsers(users.concat(user))
+
+        setInputs({
+            username: '',
+            email: '',
+        })
+        nextId.current += 1
+    }
+
+    const onRemove = (id) => {
+        setUsers(users.filter((user) => user.id !== id))
+    }
 
     return (
-        <div className="App">
-            {/* <View>
-        <Hello name="react" color="red"></Hello>
-        <Hello color="yellowgreen" important={true}></Hello>
-      </View> */}
-
-            {/* 부모 - 자식간의 데이터 전달 */}
-            {/* <Parent>
-        <child></child>
-      </Parent> */}
-            {/* <UseState1 /> */}
-            {/* <UseState2 /> */}
-
-            {/* useEffect1 */}
-            {/* <UseEffect1/> */}
-            {/* 조건부 랜더링 {true} */}
-            {/* {!work ? "" : <UseEffect2/>} */}
-
-            {/* work 버튼을 클릭 했을 때 작업이 실행 되도록 */}
-            {/* 1) "작업중 - 콘솔보기"가 출력 되면서
-      2) work 누르면 실행 */}
-
-            {/* <button onClick={() => {work ? setWork(false) : setWork(true);}}>work</button> */}
-
-            {/* {useRef} */}
-            {/* <UseRef1></UseRef1> */}
-            {/* <UseRef2></UseRef2> */}
-            {/* <UseRef3></UseRef3> */}
-
-            {/* useContext */}
-
-            {/* <News 
-        company={company} 
-        setCompany={setCompany}>
-      </News> */}
-            {/* <UseContext1.Provider value={{company, color, setCompany, setColor}}>
-        <News></News>
-      </UseContext1.Provider> */}
-            {/* <Parent></Parent> */}
-            {/* <UseMemo1></UseMemo1> */}
-            {/* <UseMemo2></UseMemo2> */}
-            {/* <UseCallback1></UseCallback1> */}
-            {/* <UseCallback2></UseCallback2> */}
-            {/* <UseReducer1></UseReducer1> */}
-            {/* <UseReducer2></UseReducer2> */}
-            {/* <UseState1></UseState1> */}
-            {/* <Storage></Storage> */}
-            {/* <Inputs></Inputs> */}
-            {/* <CSSModule></CSSModule> */}
-            {/* <StyledComponent></StyledComponent> */}
-            {/* <Async></Async> */}
-            {/* <homeTraining></homeTraining> */}
-            {/* <UserList></UserList> */}
-            <CreateUser></CreateUser>
-        </div>
+        <>
+            <CreateUser
+                username={username}
+                email={email}
+                onChange={onChange}
+                onCreate={onCreate}
+            ></CreateUser>
+            <UserList users={users} onRemove={onRemove}></UserList>
+        </>
     )
 }
 
