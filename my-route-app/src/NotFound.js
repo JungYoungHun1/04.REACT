@@ -4,7 +4,6 @@ function NotFound() {
   return (
     <div>
       <h1>NotFound 404 </h1>
-      <p>존재 ㄴㄴ해</p>
     </div>
   );
 }
