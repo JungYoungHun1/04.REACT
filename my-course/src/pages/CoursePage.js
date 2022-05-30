@@ -8,10 +8,10 @@ import styles from "./CoursePage.module.css";
 import { useParams } from "react-router-dom";
 
 function CoursePage() {
-  // const {  } = useParams();
+  const { courseSlug } = useParams();
   //
 
-  const course = getCourseBySlug("react");
+  const course = getCourseBySlug(courseSlug);
   const courseColor = getCourseColor(course?.code);
 
   const headerStyle = {

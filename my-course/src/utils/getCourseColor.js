@@ -10,24 +10,24 @@ const COLORS = {
 function getCourseColor(code = "000") {
   const firstCode = code.charAt(0);
   switch (firstCode) {
-    case 1:
+    case "1":
       // orange
-      return "orange";
-    case 2:
+      return COLORS.orange;
+    case "2":
       // blue
-      return "blue";
-    case 3:
+      return COLORS.blue;
+    case "3":
       // gold
-      return "gold";
-    case 4:
+      return COLORS.gold;
+    case "4":
       // gold
-      return "gold";
-    case 5:
+      return COLORS.gold;
+    case "5":
       // red
-      return "red";
-    case 6:
+      return COLORS.red;
+    case "6":
       // green
-      return "green";
+      return COLORS.green;
     default:
       return COLORS.gray;
   }

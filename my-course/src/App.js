@@ -9,24 +9,22 @@ import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Main />}>
-            <Route index element={<HomePage />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />}>
+          <Route index element={<HomePage />} />
+          {/*  */}
+          <Route path="/courses">
+            <Route index element={<CourseListPage />} />
             {/*  */}
-            <Route path="courses">
-              <Route index element={<CourseListPage />} />
-              {/*  */}
-              <Route path=":courseSlug" element={<CoursePage />} />
-            </Route>
-            {/*  */}
-            <Route path="wishlist" element={<WishlistPage />} />
-            <Route path="*" element={<NotFoundPage />} />
+            <Route path=":courseSlug" element={<CoursePage />} />
           </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+          {/*  */}
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

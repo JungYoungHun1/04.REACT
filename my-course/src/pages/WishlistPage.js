@@ -12,8 +12,8 @@ function WishlistPage() {
   const [courses, setCourses] = useState([]);
 
   //
-  const handleDelete = () => {
-    // deleteWishlist();
+  const handleDelete = ({ course }) => {
+    deleteWishlist(course.slug);
     const nextCourses = getWishlist();
     setCourses(nextCourses);
   };
@@ -22,7 +22,7 @@ function WishlistPage() {
   useEffect(() => {
     const nextCourses = getWishlist();
     setCourses(nextCourses);
-  }, [false]);
+  }, []);
 
   return (
     <Container className={styles.container}>
@@ -49,7 +49,7 @@ function WishlistPage() {
                 src={closeButton}
                 alt="close"
                 //
-                onClick={handleDelete(course.slug)}
+                onClick={() => handleDelete({ course })}
               />
             </li>
           ))}

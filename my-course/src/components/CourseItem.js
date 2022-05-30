@@ -20,7 +20,7 @@ function CourseItem({ course }) {
       <div className={styles.content}>
         <h2 className={styles.title}>
           {/*  */}
-          {course.title}
+          <Link to={`/courses/${course.slug}`}>{course.title}</Link>
         </h2>
         <p className={styles.description}>{showSummary && course.summary}</p>
       </div>
