@@ -30,7 +30,12 @@ import Async from './components/Async'
 import homeTraining from './homeTraining'
 import UserList from './UserList'
 import CreateUser from './CreateUser'
-
+// import Exam1 from './exam1'
+import Exam02 from './Exam02'
+import Header2 from './Header2'
+import DayList from './DayList'
+import Day from './Day'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // import { UseContext2 } from './UseContext1';
 
 // function App() {
@@ -53,50 +58,65 @@ import CreateUser from './CreateUser'
 //   );
 // }
 function App() {
-    const [inputs, setInputs] = useState({
-        username: '',
-        email: '',
-    })
-    const { username, email } = inputs
-    const onChange = (e) => {
-        const { name, value } = e.target
-        setInputs({
-            ...inputs,
-            [name]: value,
-        })
-    }
-    const [users, setUsers] = useState([])
-    const nextId = useRef(1)
+    // const [inputs, setInputs] = useState({
+    //     username: '',
+    //     email: '',
+    // })
+    // const { username, email } = inputs
+    // const onChange = (e) => {
+    //     const { name, value } = e.target
+    //     setInputs({
+    //         ...inputs,
+    //         [name]: value,
+    //     })
+    // }
+    // const [users, setUsers] = useState([])
+    // const nextId = useRef(1)
 
-    const onCreate = () => {
-        const user = {
-            id: nextId.current,
-            username,
-            email,
-        }
-        setUsers(users.concat(user))
+    // const onCreate = () => {
+    //     const user = {
+    //         id: nextId.current,
+    //         username,
+    //         email,
+    //     }
+    //     setUsers(users.concat(user))
 
-        setInputs({
-            username: '',
-            email: '',
-        })
-        nextId.current += 1
-    }
+    //     setInputs({
+    //         username: '',
+    //         email: '',
+    //     })
+    //     nextId.current += 1
+    // }
 
-    const onRemove = (id) => {
-        setUsers(users.filter((user) => user.id !== id))
-    }
+    // const onRemove = (id) => {
+    //     setUsers(users.filter((user) => user.id !== id))
+    // }
 
+    // return (
+    //     <>
+    //         <CreateUser
+    //             username={username}
+    //             email={email}
+    //             onChange={onChange}
+    //             onCreate={onCreate}
+    //         ></CreateUser>
+    //         <UserList users={users} onRemove={onRemove}></UserList>
+    //     </>
+    // )
     return (
-        <>
-            <CreateUser
-                username={username}
-                email={email}
-                onChange={onChange}
-                onCreate={onCreate}
-            ></CreateUser>
-            <UserList users={users} onRemove={onRemove}></UserList>
-        </>
+        <BrowserRouter>
+            <div className="App">
+                <Header2 />
+                <Routes>
+                    <Route exact path="/">
+                        <DayList></DayList>
+                    </Route>
+                    <Route path="/day">
+                        <Day />
+                    </Route>
+                </Routes>
+            </div>
+        </BrowserRouter>
     )
 }
 
