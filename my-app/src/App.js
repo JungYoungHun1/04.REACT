@@ -35,7 +35,18 @@ import Exam02 from './Exam02'
 import Header2 from './Header2'
 import DayList from './DayList'
 import Day from './Day'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Link, Outlet } from 'react-router-dom'
+import Dept from './components/Dept'
+import MyProject from './components/MyProject'
+import Sel from './components/Sel'
+import Upd from './components/Upd'
+import Del from './components/Del'
+import Ins from './components/Ins'
+import SelEmp from './components/SelEmp'
+import InsEmp from './components/InsEmp'
+import UpdEmp from './components/UpdEmp'
+import DelEmp from './components/DelEmp'
+import Emps from './components/Emps'
 // import { UseContext2 } from './UseContext1';
 
 // function App() {
@@ -57,6 +68,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 //     <UseState2/>
 //   );
 // }
+
 function App() {
     // const [inputs, setInputs] = useState({
     //     username: '',
@@ -103,20 +115,55 @@ function App() {
     //         <UserList users={users} onRemove={onRemove}></UserList>
     //     </>
     // )
+
+    // const [page, setPage] = useState()
     return (
-        <BrowserRouter>
-            <div className="App">
-                <Header2 />
-                <Routes>
-                    <Route exact path="/">
-                        <DayList></DayList>
-                    </Route>
-                    <Route path="/day">
-                        <Day />
-                    </Route>
-                </Routes>
+        <div>
+            {/* <li>
+                    <Link to="/">Home</Link>
+                </li> */}
+            {/* <li>
+                    <Link to="/">select</Link>
+                </li>
+                <li>
+                    <Link to="/">insert</Link>
+                </li>
+                <li>
+                    <Link to="/">update</Link>
+                </li>
+                <li>
+                    <Link to="/">delete</Link>
+                </li> */}
+
+            <div>
+                <Outlet></Outlet>
             </div>
-        </BrowserRouter>
+            {/* <button onClick={() => setPage(MyProject)}>All</button>
+            <button onClick={() => setPage(Sel)}>Select</button>
+            <button onClick={() => setPage(Ins)}>Insert</button>
+            <button onClick={() => setPage(Upd)}>Update</button>
+            <button onClick={() => setPage(Del)}>Delete</button> */}
+            {/* <button onClick={() => setPage(Emps)}>All</button>
+            <button onClick={() => setPage(SelEmp)}>Select</button>
+            <button onClick={() => setPage(InsEmp)}>Insert</button>
+            <button onClick={() => setPage(UpdEmp)}>Update</button>
+            <button onClick={() => setPage(DelEmp)}>Delete</button>
+
+            <div children={page}></div> */}
+        </div>
+        // <BrowserRouter>
+        //     <div className="App">
+        //         <Header2 />
+        //         <Routes>
+        //             <Route exact path="/">
+        //                 <DayList></DayList>
+        //             </Route>
+        //             <Route path="/day">
+        //                 <Day />
+        //             </Route>
+        //         </Routes>
+        //     </div>
+        // </BrowserRouter>
     )
 }
 

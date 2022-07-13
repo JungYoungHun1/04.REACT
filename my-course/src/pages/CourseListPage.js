@@ -9,20 +9,22 @@ import searchIcon from "../assets/search.svg";
 import { useSearchParams } from "react-router-dom";
 
 function CourseListPage() {
+  const [searchParams, setSearchParams] = useSearchParams({});
+  const initialKeyword = searchParams.get("keyword");
+  const courses = getCourses(initialKeyword);
   const [keyword, setKeyword] = useState("");
-  const courses = getCourses();
 
   const handleKeywordChange = (e) => setKeyword(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //
+    setSearchParams(keyword ? { keyword: keyword } : {});
   };
 
   return (
     <ListPage variant="catalog" title="Programming Courses">
       {/*  */}
-      <form className={searchBarStyles.form}>
+      <form className={searchBarStyles.form} onClick={handleSubmit}>
         <input
           name="keyword"
           value={keyword}

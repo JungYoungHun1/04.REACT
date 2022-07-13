@@ -19,9 +19,6 @@ root.render(
         <Route index element={<Home />} />
         <Route path="/projects">
           <Route index element={<Projects />} />
-          {/* <Route path="1" element={<Project />} /> */}
-          {/* <Route path="2" element={<Project />} /> */}
-          {/* <Route path="3" element={<Project />} /> */}
           <Route path=":projectNumber" element={<Project />} />
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
